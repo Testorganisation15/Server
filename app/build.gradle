@@ -1,0 +1,50 @@
+plugins {
+    alias(libs.plugins.androidApplication)
+    id "org.sonarqube" version "4.4.1.3373"
+}
+
+sonar {
+    properties {
+        property "sonar.projectKey", "Testorganisation15_Server"
+        property "sonar.organization", "testorganisation15"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
+}
+
+
+android {
+    namespace 'com.example.myapplicationforserver'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.myapplicationforserver"
+        minSdk 29
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}
+
+
